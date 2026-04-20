@@ -1,0 +1,41 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Latest Bollywood Memes</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+  </head>
+  <body>
+    <main class="page">
+      <section class="hero">
+        <p class="eyebrow">Live Meme Feed</p>
+        <h1>Latest Bollywood Memes</h1>
+        <p class="stamp">Updated {{ updated_at.strftime("%d %b %Y %H:%M UTC") }}</p>
+      </section>
+
+      <section class="meme-grid" aria-label="Bollywood meme images">
+        {% for meme in memes %}
+          <a class="meme-card" href="{{ meme.post_url }}" target="_blank" rel="noreferrer">
+            <img src="{{ meme.image_url }}" alt="{{ meme.title }}" loading="lazy">
+          </a>
+        {% endfor %}
+      </section>
+
+      {% if not memes %}
+        <section class="empty-state">
+          <p>Could not load live meme images right now. Try refreshing after the app has internet access.</p>
+        </section>
+      {% endif %}
+
+      <section class="links-panel">
+        <h2>Latest Redgifs Links</h2>
+        <div class="links-list">
+          {% for item in redgifs_links %}
+            <a href="{{ item.url }}" target="_blank" rel="noreferrer">{{ item.title }}</a>
+          {% endfor %}
+        </div>
+      </section>
+    </main>
+  </body>
+</html>
