@@ -16,7 +16,7 @@ except ImportError:  # pragma: no cover - optional dependency fallback
 
 app = Flask(__name__)
 
-REDDIT_URL = "https://www.reddit.com/r/BollywoodMemes/new.json?limit=30"
+REDDIT_URL = "https://api.reddit.com/r/BollywoodMemes/new?limit=30"
 REQUEST_TIMEOUT = 8
 USER_AGENT = "BollywoodMemeWall/1.0"
 
