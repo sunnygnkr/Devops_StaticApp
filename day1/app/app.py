@@ -37,7 +37,11 @@ FALLBACK_REDGIFS_LINKS = [
 
 
 def fetch_bollywood_memes(limit: int = 12) -> list[dict[str, str]]:
-    headers = {"User-Agent": USER_AGENT}
+    headers = {
+    "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 Chrome/120 Safari/537.36",
+    "Accept": "application/json",
+    "Referer": "https://www.reddit.com/",
+}
 
     try:
         response = requests.get(REDDIT_URL, headers=headers, timeout=REQUEST_TIMEOUT)
